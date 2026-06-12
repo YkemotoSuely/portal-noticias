@@ -18,8 +18,8 @@ return new class extends Migration
             $table->longText('conteudo');
             $table->string('imagem')->nullable();
             $table->tinyInteger('status');
-            $table->foreignId('usuario_id')->constrained()->restrictOnDelete();
-            $table->foreign('categoria_id')->constrained();
+            $table->foreignId('usuario_id')->constrained();
+            $table->foreignId('categoria_id')->constrained();
             $table->timestamps();
            
         });
