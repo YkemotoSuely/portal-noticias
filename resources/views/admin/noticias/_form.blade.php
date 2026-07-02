@@ -1,25 +1,41 @@
+@if ($errors->any())
+    <div class="mb-6 text-red-600">
+        <p>Verifique os erros abaixo:</p>
+        <ul>
+            @foreach ($errors->all() as $erro)
+                
+            
+                <li>{{$eroo}}</li>
+            @endforeach
+        </ul>
+
+    </div>
+@endif
+
 <div class="mb-4">
     <label for="categoria_id" class="form-label">Categoria *</label>
     <select name="categoria_id" id="categoria_id" class="form-control">
         <option>
 
         </option>
-        <option value="1">Tecnologia</option>
+        @foreach ($categorias as $id => $nome)
+            <option value="{{ $id }}">{{ $nome }}</option>
+        @endforeach
     </select>
 </div>
 
 <div class="mb-4">
-    <label for="titulo"  class="form-label">Título *</label>
+    <label for="titulo" class="form-label">Título *</label>
     <input type="text" name="titulo" id="titulo" class="form-control">
 </div>
 
 <div class="mb-4">
     <label for="resumo" class="form-label">Resumo *</label>
-    <textarea name="resumo" id="resumo" class="form-control" rows=3 ></textarea>
+    <textarea name="resumo" id="resumo" class="form-control" rows=3></textarea>
 </div>
 
 <div class="mb-4">
-    <label for="conteudo"  class="form-label">Conteúdo *</label>
+    <label for="conteudo" class="form-label">Conteúdo *</label>
     <textarea name="conteudo" id="conteudo" class="form-control"rows=10></textarea>
 </div>
 
@@ -37,7 +53,7 @@
         </label>
 
         <label>
-            <input type="radio" name="ativo" value="0" checked>
+            <input type="radio" name="status" value="0" checked>
             Rascunho
         </label>
     </div>
